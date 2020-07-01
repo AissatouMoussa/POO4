@@ -3,7 +3,7 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'clients',
-		'compte'
+		'comptes'
 	],
 	#category : #POO4
 }
@@ -19,11 +19,11 @@ Banque >> clients: anObject [
 ]
 
 { #category : #accessing }
-Banque >> compte [
-	^ compte
+Banque >> comptes [
+	^ comptes
 ]
 
 { #category : #accessing }
-Banque >> compte: anObject [
-	compte := anObject
+Banque >> comptes: anObject [
+	comptes := anObject
 ]
