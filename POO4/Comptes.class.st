@@ -15,8 +15,16 @@ Comptes >> etat [
 ]
 
 { #category : #accessing }
-Comptes >> etat: anObject [
-	etat := anObject
+Comptes >> etat: aBoolean [
+	"quand etat est false, le compte est bloqué et quand c'est true , le compte est ouvert"
+	etat := aBoolean
+]
+
+{ #category : #initialization }
+Comptes >> initialize [
+    numero:= 0.
+	  montant:= 0.
+	  etat:= true
 ]
 
 { #category : #accessing }
@@ -25,8 +33,8 @@ Comptes >> montant [
 ]
 
 { #category : #accessing }
-Comptes >> montant: anObject [
-	montant := anObject
+Comptes >> montant: aNumber [
+	montant := aNumber
 ]
 
 { #category : #accessing }
@@ -35,6 +43,6 @@ Comptes >> numero [
 ]
 
 { #category : #accessing }
-Comptes >> numero: anObject [
-	numero := anObject
+Comptes >> numero: aNumber [
+	numero := aNumber
 ]

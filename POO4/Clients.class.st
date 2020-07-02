@@ -75,17 +75,17 @@ Clients >> retirerargent:aNumber [
 ]
 
 { #category : #operation }
-Clients >> transfererargent:aNumber a: unClient [
+Clients >> transfererargent:aNumber a: unclient [
 ( self compteclient etat) ifFalse: [ Transcript show: 'le compte est fermé';cr.
 	^false ].
 	(aNumber <1)
-		ifTrue: [ ^false ]
+		ifTrue: [^false]
 		ifFalse: [ 
 				(self retirerargent: aNumber) 
 					ifTrue: [
-						(unClient depotargent: aNumber)
+						(unclient depotargent: aNumber)
 								ifTrue: [^true]
-								ifFalse: [ ^false ]
+								ifFalse: [^false]
 						]	
 					]
 ]
