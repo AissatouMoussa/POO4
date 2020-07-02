@@ -30,18 +30,19 @@ Banque >> comptes: uncompte [
 
 { #category : #operations }
 Banque >> creerCompte: unCompte client: unClient [
-	| compte client banque tail|
+	|Compte clien banque tail |
 	banque := self .
-	client := unClient.
-	compte := unCompte.
-	
-	client compte: compte.
-	self comptes: compte.
-	self clients: client.
+	clients := unClient.
+	comptes := unCompte.
+
+	clients comptes: comptes.
+	self comptes: comptes.
+	self clients: clients.
 	 
- 	client  id: (banque clients at: 1 )idclient + 1 .
+ 	clients  identifiantclient: (banque clients at: 1 )identifiantclient  + 1 .
  
- compte  numero: (banque comptes at: 1 )numero + 1 
+ comptes  numero: (banque comptes at: 1 )numero + 1 
+ 
 ]
 
 { #category : #initalize }
