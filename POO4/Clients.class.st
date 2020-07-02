@@ -3,7 +3,7 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'nomclient',
-		'idclient',
+		'identifiantclient',
 		'compteclient'
 	],
 	#category : #POO4
@@ -20,30 +20,30 @@ Clients >> compteclient: uncompte [
 ]
 
 { #category : #operation }
-Clients >> depot: aNumber [
-	self compteclient etat
+Clients >> depotargent: aNumber [
+	self compteclient  etat
 		ifFalse: [^ false ].
 	aNumber < 1
 		ifTrue: [ ^ false ]
-		ifFalse: [ self compteclient montant: self compte+ aNumber.
+		ifFalse: [ self compteclient montant: self compteclient + aNumber.
 			^ true ]
 ]
 
 { #category : #accessing }
-Clients >> idclient [
-	^ idclient
+Clients >> identifiantclient [
+	^ identifiantclient
 ]
 
 { #category : #accessing }
-Clients >> idclient: anObject [
-	idclient := anObject
+Clients >> identifiantclient: anObject [
+	identifiantclient := anObject
 ]
 
 { #category : #initialize }
 Clients >> initialize [ 
 	super initialize.
 	  nomclient := ''.
-	  idclient:= 0.
+	  identifiantclient := 0.
 	  compteclient:= nil
 ]
 
@@ -55,4 +55,37 @@ Clients >> nomclient [
 { #category : #accessing }
 Clients >> nomclient: anObject [
 	nomclient := anObject
+]
+
+{ #category : #operation }
+Clients >> retirerargent:aNumber [
+  ( self compteclient etat) ifFalse: [ Transcript show: 'le compte est fermé';cr.
+	^false ].
+	(aNumber <1)
+		ifTrue: [ ^false ]
+		ifFalse: [ 
+			(self compteclient  montant > aNumber )
+			ifFalse: [ Transcript show: 'le Solde est insuffisant';cr.
+				^false]
+			ifTrue:[
+				(self compteclient) montant:(self compteclient - aNumber).
+				^true
+				]	 
+			]
+]
+
+{ #category : #operation }
+Clients >> transfererargent:aNumber a: unClient [
+( self compteclient etat) ifFalse: [ Transcript show: 'le compte est fermé';cr.
+	^false ].
+	(aNumber <1)
+		ifTrue: [ ^false ]
+		ifFalse: [ 
+				(self retirerargent: aNumber) 
+					ifTrue: [
+						(unClient depotargent: aNumber)
+								ifTrue: [^true]
+								ifFalse: [ ^false ]
+						]	
+					]
 ]
