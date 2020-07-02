@@ -3,7 +3,7 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'nomclient',
-		'prenomclient',
+		'idclient',
 		'compteclient'
 	],
 	#category : #POO4
@@ -20,6 +20,16 @@ Clients >> compteclient: anObject [
 ]
 
 { #category : #accessing }
+Clients >> idclient [
+	^ idclient
+]
+
+{ #category : #accessing }
+Clients >> idclient: anObject [
+	idclient := anObject
+]
+
+{ #category : #accessing }
 Clients >> nomclient [
 	^ nomclient
 ]
@@ -27,14 +37,4 @@ Clients >> nomclient [
 { #category : #accessing }
 Clients >> nomclient: anObject [
 	nomclient := anObject
-]
-
-{ #category : #accessing }
-Clients >> prenomclient [
-	^ prenomclient
-]
-
-{ #category : #accessing }
-Clients >> prenomclient: anObject [
-	prenomclient := anObject
 ]

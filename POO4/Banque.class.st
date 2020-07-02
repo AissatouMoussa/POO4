@@ -3,6 +3,7 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'clients',
+		'Comptes',
 		'comptes'
 	],
 	#category : #POO4
@@ -20,10 +21,33 @@ Banque >> clients: anObject [
 
 { #category : #accessing }
 Banque >> comptes [
-	^ comptes
+	^ Comptes
 ]
 
 { #category : #accessing }
-Banque >> comptes: anObject [
-	comptes := anObject
+Banque >> comptes: uncompte [
+	comptes addFirst: uncompte
+]
+
+{ #category : #operations }
+Banque >> creerCompte: unCompte client: unClient [
+	| compte client banque tail|
+	banque := self .
+	client := unClient.
+	compte := unCompte.
+	
+	client compte: compte.
+	self comptes: compte.
+	self clients: client.
+	 
+ 	client  id: (banque clients at: 1 )idclient + 1 .
+ 
+ compte  numero: (banque comptes at: 1 )numero + 1 
+]
+
+{ #category : #initalize }
+Banque >> initialize [ 
+		super initialize.
+		 comptes:= OrderedCollection new.
+	   clients:= OrderedCollection new 
 ]
