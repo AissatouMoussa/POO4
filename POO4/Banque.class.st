@@ -30,7 +30,7 @@ Banque >> comptes: uncompte [
 
 { #category : #operations }
 Banque >> creerCompte: unCompte client: unClient [
-	|Compte clien banque tail |
+	|Compte client banque tail |
 	banque := self .
 	clients := unClient.
 	comptes := unCompte.
