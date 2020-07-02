@@ -15,8 +15,8 @@ Clients >> compteclient [
 ]
 
 { #category : #accessing }
-Clients >> compteclient: anObject [
-	compteclient := anObject
+Clients >> compteclient: uncompte [
+	compteclient := uncompte
 ]
 
 { #category : #accessing }
@@ -27,6 +27,14 @@ Clients >> idclient [
 { #category : #accessing }
 Clients >> idclient: anObject [
 	idclient := anObject
+]
+
+{ #category : #initialize }
+Clients >> initialize [ 
+	super initialize.
+	  nomclient := ''.
+	  idclient:= 0.
+	  compteclient:= nil
 ]
 
 { #category : #accessing }
