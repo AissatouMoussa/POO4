@@ -3,7 +3,6 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'clients',
-		'Comptes',
 		'comptes'
 	],
 	#category : #POO4
